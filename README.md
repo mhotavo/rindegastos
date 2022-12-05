@@ -26,10 +26,23 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
+## Routes Example
+
+```bash
+# getConvertedAmount
+$ localhost:3000/getConvertedAmount?from=CLP&to=USD&amount=15000
+
+# getTheNumber
+$ localhost:3000/getTheNumber?first=900&second=5
+
+# getDaysUntilMyBirthday
+$ localhost:3000/getDaysUntilMyBirthday?birthdate=2000-01-01
+```
+
 ## Installation
 
 ```bash
-$ npm install
+$ yarn install
 ```
 
 ## Running the app
