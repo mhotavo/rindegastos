@@ -4,10 +4,9 @@ import { NumberDto } from './dto/number.dto';
 @Injectable()
 export class NumbersService {
 
-    concatenate( NumberDto: NumberDto){
+    concatenate(NumberDto: NumberDto){
         let concat: string = '';
         for (let index = 1; index <= NumberDto.second; index++) {
-            console.log(concat.length)
             concat +=(+NumberDto.first * index)
             if (concat.length >= 9) { break; } 
         }

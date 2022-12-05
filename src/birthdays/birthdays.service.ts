@@ -5,9 +5,9 @@ import { BirthdayDto } from './dto/birthday.dto';
 export class BirthdaysService {
   
   daysLeft(BirthdayDto: BirthdayDto) {
-    const today = new Date();
-    const birthday = new Date();
-    const birthdate = new Date(BirthdayDto.birthdate);
+    const today:Date = new Date();
+    const birthday:Date = new Date();
+    const birthdate:Date = new Date(BirthdayDto.birthdate);
     // set next birthday date
     birthday.setMonth(birthdate.getMonth());
     birthday.setDate(birthdate.getDate());
@@ -17,8 +17,8 @@ export class BirthdaysService {
       birthday.setFullYear(today.getFullYear() + 1);
     }
 
-    let diffTime = birthday.getTime() - today.getTime();
-    let days = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+    let diffTime:number = birthday.getTime() - today.getTime();
+    let days:number = Math.floor(diffTime / (1000 * 60 * 60 * 24));
 
     return { daysUntilYourBirthday: days };
   }

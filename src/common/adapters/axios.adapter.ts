@@ -8,10 +8,14 @@ export class AxiosAdapter implements HttpAdapter {
 
   async get<T>(url: string): Promise<T> {
     try {
-      const { data } = await this.axios.get<T>(url);
+      const { data } = await this.axios.get<T>(url, {
+        headers: {
+          'Accept-Encoding': 'application/json',
+        },
+      });
       return data;
     } catch (error) {
-      throw new Error("An error has occurred in the request");
+      throw new Error('An error has occurred in the request');
     }
   }
 }

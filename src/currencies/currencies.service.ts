@@ -10,7 +10,7 @@ export class CurrenciesService {
   async convertAmount(ConvertCurrencyDto: ConvertCurrencyDto) {
     const { rates } = await this.http.get<RatesResponse>(process.env.API_URL);
     
-    let rate = 0;
+    let rate:number = 0;
     if (ConvertCurrencyDto.from === 'USD') {
       rate = rates[ConvertCurrencyDto.to];
     } else {
