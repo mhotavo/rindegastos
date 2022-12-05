@@ -8,15 +8,14 @@ export class CurrenciesService {
   constructor(private readonly http: AxiosAdapter) {}
 
   async convertAmount(ConvertCurrencyDto: ConvertCurrencyDto) {
-    const data = await this.http.get<RatesResponse>(
-      'https://openexchangerates.org/api/latest.json?app_id=0828fbcec3b04f8f9765de703ada3cf1',
-    );
+    const { rates } = await this.http.get<RatesResponse>(process.env.API_URL);
+    
     let rate = 0;
     if (ConvertCurrencyDto.from === 'USD') {
-      rate = data.rates[ConvertCurrencyDto.to];
+      rate = rates[ConvertCurrencyDto.to];
     } else {
       rate =
-        data.rates[ConvertCurrencyDto.to] / data.rates[ConvertCurrencyDto.from];
+        rates[ConvertCurrencyDto.to] / rates[ConvertCurrencyDto.from];
     }
     const ConvertedAmount = (rate * ConvertCurrencyDto.amount).toFixed(4);
 
