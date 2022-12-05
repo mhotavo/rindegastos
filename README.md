@@ -42,7 +42,7 @@ $ localhost:3000/getDaysUntilMyBirthday?birthdate=2000-01-01
 ## Installation
 
 ```bash
-$ yarn install
+$ npm install
 ```
 
 ## Running the app
